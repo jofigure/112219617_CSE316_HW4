@@ -5,14 +5,39 @@
 <head>
     <title> </title>
     <style>
+       
         
     </style>
 
 </head>
 
-<body onload>
+<body style="background-color:rgb(226, 67, 62);">
+<h3 id = "searchHeader" style = "padding:0px;float: left"> Search  </h3>  &nbsp;
+<input id = "search "  type = "text"  style = "width:50%;padding:10px;float: inherit"> 
+<form style = "width:60%;padding:10px;" >  <label>in </label><select name="searchList" id="filters"> 
+    <option value="allFields">All Fields</option>
+    <option value="title">Title</option>
+    <option value="classNum">Class Number</option>
+    <option value="day">Day</option>
+    <option value="time">Time</option>
+  </select></form>
+<button id = "findButton"  >Find</button>
+
+
+
     <script>
-       ww
+      
+
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://joanna:<Password123>@firstcluster.w03kq.mongodb.net/<CourseDB>?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
 
 
 
