@@ -13,51 +13,30 @@
 
 <body style="background-color:rgb(226, 67, 62);">
   <h3 id="searchHeader" style="padding:0px;float: left"> Search </h3> &nbsp;
-  <input id="search " type="text" style="width:50%;padding:10px;float: inherit">
-  <form style="width:60%;padding:10px;"> <label>in </label><select name="searchList" id="filters">
-      <option value="allFields">All Fields</option>
+
+  <form action="/getCourse" method="POST" style="width:60%;padding:10px;"> 
+       <input id="search " type="text" name = "searchTe" style="width:50%;padding:10px;float: inherit"><label>in </label>
+    <select name="searchList" id="filters">
+    <option value="allFields">All Fields</option>
       <option value="title">Title</option>
       <option value="classNum">Class Number</option>
       <option value="day">Day</option>
       <option value="time">Time</option>
-    </select></form>
-  <button id="findButton">Find</button>
+    </select>
+   <button id="findButton">Find</button>
+  </form>
+ 
 
 
 
   <script>
 
 
-    async function main() {
+    // async function main() {
 
 
-      const MongoClient = require('mongodb').MongoClient;
-      //const { MongoClient } = require('mongodb');
-      const uri = "mongodb+srv://joanna:qwerty1@cluster0.w03kq.mongodb.net/ClassesDB?retryWrites=true&w=majority";
-      const client = new MongoClient(uri, { useNewUrlParser: true });
-      //const client = new MongoClient(uri);
-      // client.connect(err => {
-      //   const collection = client.db("test").collection("devices");
-      //   // perform actions on the collection object
-      //   client.close();
-      // });
-      try {
-        await client.connect();
-
-        await listDatabases(client);
-
-      } catch (e) {
-        console.error(e);
-      }
-
-      finally {
-        await client.close();
-      }
-    }
-
-    main().catch(console.error);
-
-
+      
+    // }
 
   </script>
 
