@@ -21,7 +21,12 @@ var bodyParser = require('body-parser');
 //var urlencodedParser = bodyParser.urlencoded({ extended: false });
 const PORT = 3000;
 app.use(express.static(path.join(__dirname, "ClassFindHW4")));
-app.use(bodyParser());
+app.use(bodyParser()); 
+
+var courseScript = new 
+
+
+
 app.get('/', (req, res) => {
   res.sendFile('ClassFindHW4.html',{root: __dirname});
   //console.log(req.body.searchText);

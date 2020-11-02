@@ -25,6 +25,30 @@
     </select>
    <button id="findButton">Find</button>
   </form>
+
+
+
+  <table>
+    <tr>
+        <th>Title</th>
+        <th>Subj </th>
+        <th>Crs</th>
+        <th>Instr </th>
+        <th>Room </th>
+        <th></th>
+    </tr>
+    <% details.forEach(function(item){ %>
+    <tr>
+        <td><%= item.route%></td>
+        <td><%= item.origin %></td>
+        <td><%= item.destination%></td>
+        <td><%= item.estimatedTimeOfArrival %></td>
+        <td><%= item.date%></td>
+        <td><%= item.time%></td>
+    
+    </tr>
+    <% }) %>
+    </table>
  
 
 
