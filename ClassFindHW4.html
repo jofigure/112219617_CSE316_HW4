@@ -5,57 +5,102 @@
 <head>
   <title> Class Finder</title>
   <style>
+   
+.tablink:hover {
+  background-color: #777;
+}
 
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
 
-  </style>
+ .tabcontent {
+  color: white;
+  display: none;
+  padding: 50px;
+  text-align: center;
+ }
+  </style> 
 
 </head>
 
 <body style="background-color:beige;">
+
+  <button class="tablink" onclick="openTab('searchTab')" id="defaultOpen">Search</button>
+  <button class="tablink" onclick="openTab('scheduleTab')">Schedule</button>
+
+  <div id="searchTab" class="tabcontent">
+    <h1>Schedule</h1>
+  </div>
+  <div id="scheduleTab" class="tabcontent">
+    <h1>Search</h1>
+  </div>
+
+
   <h3 id="searchHeader" style="padding:0px;float: left"> Search </h3> &nbsp;
 
-  <form action="/" method="POST" style="width:60%;padding:10px;"> 
-       <input id="search " type="text" name = "searchText" style="width:50%;padding:10px;float: inherit"><label>in </label>
+  <form action="/" method="POST" style="width:60%;padding:10px;">
+    <input id="search " type="text" name="searchText" style="width:50%;padding:10px;float: inherit"><label>in </label>
     <select name="searchList" id="filters">
-    <option value="allFields">All Fields</option>
+      <option value="allFields">All Fields</option>
       <option value="title">Title</option>
       <option value="classNum">Class Number</option>
       <option value="day">Day</option>
       <option value="time">Time</option>
     </select>
-   <button id="findButton">Find</button>
+    <button id="findButton">Find</button>
   </form>
 
 
 
   <table>
     <tr>
-        <th>Title</th>
-        <th>Subj </th>
-        <th>Crs</th>
-        <th>Instr </th>
-        <th>Room </th>
-        <th></th>
+      <th>Title</th>
+      <th>Subj </th>
+      <th>Crs</th>
+      <th>Instr </th>
+      <th>Room </th>
+      <th></th>
     </tr>
-    <% details.forEach(function(item){ %>
+
     <tr>
-        <td><%= item.route%></td>
-        <td><%= item.origin %></td>
-        <td><%= item.destination%></td>
-        <td><%= item.estimatedTimeOfArrival %></td>
-        <td><%= item.date%></td>
-        <td><%= item.time%></td>
-    
+      <td name=""><%=title%></td>
+      <td name="subj"></td>
+      <td name="crs"></td>
+      <td name="instr"></td>
+      <td nane="room"> </td>
+      <td></td>
+
     </tr>
-    <% }) %>
-    </table>
- 
+
+  </table>
+
 
 
 
   <script>
-
-
+    function openTab(tabName) {
+      console.log("it should go in here");
+      var i, tabcontent, tablinks;
+      tabContent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(tabName).style.display = "block";
+    document.getElementById("defaultOpen").click();
+  }
   </script>
 
 
