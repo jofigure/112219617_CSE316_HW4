@@ -23,7 +23,7 @@
 }
 
  .tabcontent {
-  color: white;
+  color: rosybrown;
   display: none;
   padding: 50px;
   text-align: center;
@@ -38,16 +38,8 @@
   <button class="tablink" onclick="openTab('scheduleTab')">Schedule</button>
 
   <div id="searchTab" class="tabcontent">
-    <h1>Schedule</h1>
-  </div>
-  <div id="scheduleTab" class="tabcontent">
     <h1>Search</h1>
-  </div>
-
-
-  <h3 id="searchHeader" style="padding:0px;float: left"> Search </h3> &nbsp;
-
-  <form action="/" method="POST" style="width:60%;padding:10px;">
+    <form action="/" method="POST" style="width:60%;padding:10px;">
     <input id="search " type="text" name="searchText" style="width:50%;padding:10px;float: inherit"><label>in </label>
     <select name="searchList" id="filters">
       <option value="allFields">All Fields</option>
@@ -58,6 +50,20 @@
     </select>
     <button id="findButton">Find</button>
   </form>
+  </div>
+
+
+
+
+  
+  <div id="scheduleTab" class="tabcontent">
+    <h1>Schedule</h1>
+  </div>
+
+
+
+
+  
 
 
 
@@ -90,7 +96,7 @@
     function openTab(tabName) {
       console.log("it should go in here");
       var i, tabcontent, tablinks;
-      tabContent = document.getElementsByClassName("tabcontent");
+      tabcontent = document.getElementsByClassName("tabcontent");
       for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
       }
@@ -99,8 +105,9 @@
         tablinks[i].style.backgroundColor = "";
       }
       document.getElementById(tabName).style.display = "block";
-    document.getElementById("defaultOpen").click();
+
   }
+      document.getElementById("defaultOpen").click();
   </script>
 
 
