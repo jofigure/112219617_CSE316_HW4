@@ -37,8 +37,11 @@ function writeSearch(req, res) {
     <html lang="en">
 
     <head>
-        <title> Spring 2021 CSE Class Find </title>
+        <title> Spring 2021 CSE Schedule Builder </title>
     </head>
+    <style>
+    body {background-color: red;}
+    </style>
 
     <body>
         <h1> Spring 2021 CSE Class Find </h1><br>
@@ -104,24 +107,24 @@ function writeSearch(req, res) {
         if (err) throw err;
         for (let item of result) {
             html += `
-            <button type="button" class="toggle"> CSE ` + item.Crs + ` - ` +
+            <button type="button" class="toggle" style="background-color:yellow;" > CSE ` + item.Crs + ` - ` +
                 item.Title + ` - ` + item.Cmp + ` - Section ` + item.Sctn + `</button>
             <pre>
-                Days: ` + item.Days + `
-                Start Time: ` + item.StartTime + `
-                End Time: ` + item.EndTime + `
-                Start Date: ` + item.StartDate + `
-                End Date: ` + item.EndDate + `
-                Duration: ` + item.Duration + `
-                Instruction Mode: ` + item.InstructionMode + `
-                Building: ` + item.Building + `
-                Room: ` + item.Room + `
-                Instructor: ` + item.Instr + `
-                Enrollment Cap: ` + item.EnrollCap + `
-                Wait Cap: ` + item.WaitCap + `
-                Combined Description: ` + item.CmbDescr + `
-                Combind Enrollment Cap: ` + item.CmbEnrlCap + `<form action="/schedule" method="get">
-                <button name="add" value="` + item.id + `"> Add Class </button> </form> </pre>`;
+            <b>Days:</b> ` + item.Days + `
+                <b>Start Time:</b> ` + item.StartTime + `
+                <b>End Time:</b> ` + item.EndTime + `
+                <b>Start Date:</b> ` + item.StartDate + `
+                <b>End Date:</b> ` + item.EndDate + `
+                <b>Duration:</b> ` + item.Duration + `
+                <b> Instruction Mode:</b> ` + item.InstructionMode + `
+                <b>Building:</b> ` + item.Building + `
+                <b>Room:</b> ` + item.Room + `
+                <b> Instructor:</b> ` + item.Instr + `
+                <b> Enrollment Cap: </b>` + item.EnrollCap + `
+                <b>Wait Cap: ` + item.WaitCap + `
+                <b>Combined Description:</b> ` + item.CmbDescr + `
+                <b> Combined Enrollment Cap:</b> ` + item.CmbEnrlCap + `<form action="/schedule" method="get">
+                <button name="add" style="background-color:yellow;" value=" ` + item.id + `"> Add Class </button> </form> </pre>`;
 
         }
         res.write(html + "\n\n</body>\n</html>");
