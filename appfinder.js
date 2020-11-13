@@ -44,7 +44,7 @@ function writeSearch(req, res) {
     </style>
 
     <body>
-        <h1> Spring 2021 CSE Class Find </h1><br>
+        <h1 style="color:white;"> Spring 2021 CSE Class Find </h1><br>
         <form method ="get" action ="/">
         <input type ="text" name="search" value="">
         <b>in</b>
@@ -109,7 +109,9 @@ function writeSearch(req, res) {
             html += `
             <button type="button" class="toggle" style="background-color:yellow;" > CSE ` + item.Crs + ` - ` +
                 item.Title + ` - ` + item.Cmp + ` - Section ` + item.Sctn + `</button>
-            <pre>
+          
+                <pre>
+            <div style="border-style:dotted;color:white;">
             <b>Days:</b> ` + item.Days + `
                 <b>Start Time:</b> ` + item.StartTime + `
                 <b>End Time:</b> ` + item.EndTime + `
@@ -124,6 +126,7 @@ function writeSearch(req, res) {
                 <b>Wait Cap: ` + item.WaitCap + `
                 <b>Combined Description:</b> ` + item.CmbDescr + `
                 <b> Combined Enrollment Cap:</b> ` + item.CmbEnrlCap + `<form action="/schedule" method="get">
+              </div>
                 <button name="add" style="background-color:yellow;" value=" ` + item.id + `"> Add Class </button> </form> </pre>`;
 
         }
@@ -144,12 +147,13 @@ function writeSchedule(req, res) {
         <title> Schedule </title>
         <style type = text/css>
         table, tr, th, td {
-            border: 1px solid black;
+            border: 1px solid white;
             height: 50px;
             vertical-align: bottom;
             padding: 15px;
             text-align: left;
         }
+        body {background-color: red;}
         </style>
     </head>
     <body>
